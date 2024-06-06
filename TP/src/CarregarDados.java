@@ -16,9 +16,6 @@ public class CarregarDados {
             int qtd_armazens = Integer.parseInt(primeiraLinha[0]);
             int qtd_clientes = Integer.parseInt(primeiraLinha[1]);
 
-            List<Integer> listaProcura = new ArrayList<>();
-            List<Integer> listaCustoTotal = new ArrayList<>();
-
             //Separar dados dos armazens
             for (int i = 0; i < qtd_armazens; i++) {
                 String[] dadosArmazem = buffer.readLine().trim().split("\\s+");
