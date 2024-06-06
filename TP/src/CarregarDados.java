@@ -16,45 +16,35 @@ public class CarregarDados {
             int qtd_armazens = Integer.parseInt(primeiraLinha[0]);
             int qtd_clientes = Integer.parseInt(primeiraLinha[1]);
 
-            List<Integer> listaProcura = new ArrayList<>();
-            List<Integer> listaCustoTotal = new ArrayList<>();
-
             //Separar dados dos armazens
             for (int i = 0; i < qtd_armazens; i++) {
                 String[] dadosArmazem = buffer.readLine().trim().split("\\s+");
                 int capacidade = Integer.parseInt(dadosArmazem[0]);
                 double custoFixo = Double.parseDouble(dadosArmazem[1]);
                 armazens.add(new Armazem(capacidade, custoFixo));
+                System.out.println(armazens.toString());
             }
 
             //Separar dados dos clientes
             for (int j = 0; j < qtd_clientes; j++) {
                 int idCliente = Integer.parseInt(buffer.readLine().trim());
-                System.out.println("====================================================");
-                System.out.println("Id Cliente: " + idCliente);
                 Cliente cliente = new Cliente(qtd_armazens, idCliente);
-                for (int m = 0; m < 13; m++) {
+
+                do {
                     String[] dadosClientes = buffer.readLine().trim().split("\\s+");
                     for (int k = 0; k < dadosClientes.length; k++) {
                         String[] procuraCliente = dadosClientes[k].split("\\.");
-
-                        System.out.println(procuraCliente[0]);
+                        //System.out.println(procuraCliente[0]);
 
                         //Caso a procuraCliente[0] for vazio ele coloca 0 senão for.... EX: linha 108 cap71.txt
                         int procura = procuraCliente[0].isEmpty() ? 0 : Integer.parseInt(procuraCliente[0]);
                         int custoTotal = procuraCliente[1].isEmpty() ? 0 : Integer.parseInt(procuraCliente[1]);
-                        listaProcura.add(procura);
-                        listaCustoTotal.add(custoTotal);
+                        cliente.setCusto_alocacao(custoTotal, cliente.getSize_cost());
+                        cliente.setProcura(procura, cliente.getSize_demand());
                     }
-                }
-                System.out.println(listaProcura.toString());
-                System.out.println(listaCustoTotal.toString());
-                for (int l = 0; l < listaProcura.size(); l++) {
-                    cliente.custo_alocacao[l] = listaCustoTotal.get(l);
-                    cliente.procura[l] = listaProcura.get(l);
-                }
-                listaProcura.clear();
-                listaCustoTotal.clear();
+                    //System.out.println(cliente.getSize_cost());
+                } while (cliente.getSize_cost() < qtd_armazens && cliente.getSize_demand() < qtd_armazens);
+                System.out.println(cliente.toString());
                 clientes.add(cliente);
             }
 

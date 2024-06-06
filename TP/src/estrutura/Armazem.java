@@ -19,9 +19,10 @@ public class Armazem {
 
     @Override
     public String toString() {
-        return "Armazem{" +
-                "capacidade='" + capacidade + '\'' +
-                ", custo fixo='" + custo_fixo + '\'' +
-                '}';
+        return "{\n" +
+                "   Info Armazem \n" +
+                "   CAPACIDADE: " + capacidade + "\n" +
+                "   CUSTO FIXO: " + custo_fixo + "\n" +
+                "}";
     }
 }
