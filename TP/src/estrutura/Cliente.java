@@ -16,6 +16,10 @@ public class Cliente {
         this.size_demand = 0;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public int[] getCusto_alocacao() {
         return custo_alocacao;
     }

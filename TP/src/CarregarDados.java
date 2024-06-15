@@ -22,7 +22,7 @@ public class CarregarDados {
                 int capacidade = Integer.parseInt(dadosArmazem[0]);
                 double custoFixo = Double.parseDouble(dadosArmazem[1]);
                 armazens.add(new Armazem(capacidade, custoFixo));
-                System.out.println(armazens.toString());
+                //System.out.println(armazens.toString());
             }
 
             //Separar dados dos clientes
@@ -44,7 +44,7 @@ public class CarregarDados {
                     }
                     //System.out.println(cliente.getSize_cost());
                 } while (cliente.getSize_cost() < qtd_armazens && cliente.getSize_demand() < qtd_armazens);
-                System.out.println(cliente.toString());
+                //System.out.println(cliente.toString());
                 clientes.add(cliente);
             }
 
