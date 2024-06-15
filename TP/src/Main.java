@@ -38,7 +38,7 @@ public class Main {
             System.out.println(clientes);
         }
 */
-        /*
+
         GeneticAlgorithm ga = new GeneticAlgorithm(armazem, cliente);
         Solution bestSolution = ga.run();
 
@@ -48,18 +48,20 @@ public class Main {
             System.out.println("Cliente " + i + " alocado ao armazém " + bestSolution.assignments[i]);
         }
 
-         */
 
         //pesquisaLocal(armazem, cliente);
 
+        /*
         int[] alocacaoAtual = new int[armazem.size()];
-        AlgoritmoGuloso.alocarClientes(armazem, cliente);
+        AlgoritmoGuloso.executar(armazem, cliente);
 
         // Mostrar resultados da solução inicial
         System.out.println("Resultado do Algoritmo Guloso:");
         for (int i = 0; i < armazem.size(); i++) {
             System.out.println("Cliente alocado no Armazem " + i + ": " + alocacaoAtual[i]);
         }
+        */
+
     }
 }
 

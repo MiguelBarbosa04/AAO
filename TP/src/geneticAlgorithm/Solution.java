@@ -26,9 +26,6 @@ public class Solution {
             if (warehouseUsage[i] > 0) {
                 cost += armazens.get(i).getCusto_fixo();
             }
-            if (warehouseUsage[i] > armazens.get(i).capacidade) {
-                cost += (warehouseUsage[i] - armazens.get(i).capacidade) * 10; // Penalidade por exceder capacidade
-            }
         }
         this.totalCost = cost;
     }

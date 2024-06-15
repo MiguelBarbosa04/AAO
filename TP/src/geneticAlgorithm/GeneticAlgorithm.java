@@ -12,12 +12,14 @@ public class GeneticAlgorithm {
     private List<Solution> population;
     private List<Armazem> armazens;
     private List<Cliente> clientes;
+    private Solution bestSolutionEver; // Melhor solução global
 
     public GeneticAlgorithm(List<Armazem> armazens, List<Cliente> clientes) {
         this.armazens = armazens;
         this.clientes = clientes;
         this.population = initializePopulation(clientes.size(), armazens.size());
         evaluatePopulation();
+        bestSolutionEver = findBestSolutionInGeneration(population); // Inicializa a melhor solução global
     }
 
     public Solution run() {
@@ -35,10 +37,13 @@ public class GeneticAlgorithm {
 
             // Encontrar a melhor solução da geração atual
             Solution bestInGeneration = findBestSolutionInGeneration(population);
-            System.out.println("Geração " + generation + ": Melhor custo = " + bestInGeneration.totalCost);
+            if (bestInGeneration.totalCost < bestSolutionEver.totalCost) {
+                bestSolutionEver = bestInGeneration; // Atualiza a melhor solução global se encontrar uma melhor
+            }
+            System.out.println("Geração " + generation + ": Melhor custo na geração = " + bestInGeneration.totalCost + ", Melhor custo global = " + bestSolutionEver.totalCost);
         }
 
-        return findBestSolution();
+        return bestSolutionEver;
     }
 
     private List<Solution> initializePopulation(int numClientes, int numArmazens) {
@@ -93,16 +98,6 @@ public class GeneticAlgorithm {
                 solution.assignments[i] = random.nextInt(numArmazens);
             }
         }
-    }
-
-    private Solution findBestSolution() {
-        Solution best = population.get(0);
-        for (Solution solution : population) {
-            if (solution.totalCost < best.totalCost) {
-                best = solution;
-            }
-        }
-        return best;
     }
 
     private Solution findBestSolutionInGeneration(List<Solution> population) {
