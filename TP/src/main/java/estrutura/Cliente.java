@@ -1,15 +1,16 @@
 package estrutura;
 
 public class Cliente {
-    public int[] custo_alocacao ;
+    public double[] custo_alocacao ;
     public int[] procura;
     int id;
+    int id_armazem;
     int size_cost;
     int size_demand;
 
 
     public Cliente(int qtdArmazem, int id) {
-        this.custo_alocacao = new int[qtdArmazem];
+        this.custo_alocacao = new double[qtdArmazem];
         this.procura = new int[qtdArmazem];
         this.id = id;
         this.size_cost = 0;
@@ -20,15 +21,23 @@ public class Cliente {
 
     }
 
+    public int getId_armazem() {
+        return id_armazem;
+    }
+
+    public void setId_armazem(int id_armazem) {
+        this.id_armazem = id_armazem;
+    }
+
     public int getId() {
         return id;
     }
 
-    public int getCusto_alocacao(int index) {
+    public double getCusto_alocacao(int index) {
         return custo_alocacao[index];
     }
 
-    public void setCusto_alocacao(int custo_alocacao, int index) {
+    public void setCusto_alocacao(double custo_alocacao, int index) {
         this.custo_alocacao[index] = custo_alocacao;
         size_cost++;
     }

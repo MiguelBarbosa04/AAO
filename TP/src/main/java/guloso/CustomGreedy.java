@@ -5,7 +5,7 @@ import estrutura.Cliente;
 
 import java.util.List;
 
-public class AlgoritmoGuloso {
+public class CustomGreedy {
     public static int[] executar(List<Armazem> armazens, List<Cliente> clientes) {
         int numClientes = clientes.size();
         int numArmazens = armazens.size();
@@ -22,12 +22,12 @@ public class AlgoritmoGuloso {
             Cliente cliente = clientes.get(i);
 
             int melhorArmazem = -1;
-            double menorCusto = Integer.MAX_VALUE;
+            int menorCusto = Integer.MAX_VALUE;
 
             for (int j = 0; j < numArmazens; j++) {
                 Armazem armazem = armazens.get(j);
 
-                double custoAtual = (cliente.getCusto_alocacao(j));
+                int custoAtual = (int) (cliente.getCusto_alocacao(j) + armazem.getCusto_fixo());
 
                 if (custoAtual < menorCusto) {
                     menorCusto = custoAtual;
@@ -44,7 +44,7 @@ public class AlgoritmoGuloso {
         // Output the solution and total cost
         System.out.println("Solução de alocação:");
         for (int i = 0; i < solution.length; i++) {
-            System.out.println("Cliente " + i + " -> Armazém " + solution[i] + " Custo de Alocação " + clientes.get(i).getCusto_alocacao(solution[i]-1));
+            System.out.println("Cliente " + i + " -> Armazém " + solution[i]);
         }
         System.out.println("Custo Total: " + custoTotal);
 

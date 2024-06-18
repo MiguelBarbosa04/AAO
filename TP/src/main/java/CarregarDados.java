@@ -22,8 +22,11 @@ public class CarregarDados {
                 int capacidade = Integer.parseInt(dadosArmazem[0]);
                 double custoFixo = Double.parseDouble(dadosArmazem[1]);
                 armazens.add(new Armazem(capacidade, custoFixo));
-                //System.out.println(armazens.toString());
+                System.out.println(armazens.toString());
+
             }
+
+            int count = 0;
 
             //Separar dados dos clientes
             for (int j = 0; j < qtd_clientes; j++) {
@@ -31,20 +34,24 @@ public class CarregarDados {
                 Cliente cliente = new Cliente(qtd_armazens, idCliente);
 
                 do {
+
                     String[] dadosClientes = buffer.readLine().trim().split("\\s+");
                     for (int k = 0; k < dadosClientes.length; k++) {
                         String[] procuraCliente = dadosClientes[k].split("\\.");
                         //System.out.println(procuraCliente[0]);
 
                         //Caso a procuraCliente[0] for vazio ele coloca 0 senão for.... EX: linha 108 cap71.txt
+
                         int procura = procuraCliente[0].isEmpty() ? 0 : Integer.parseInt(procuraCliente[0]);
-                        int custoTotal = procuraCliente[1].isEmpty() ? 0 : Integer.parseInt(procuraCliente[1]);
+                        double custoTotal = procuraCliente[1].isEmpty() ? 0 : Double.parseDouble(procuraCliente[1]);
                         cliente.setCusto_alocacao(custoTotal, cliente.getSize_cost());
                         cliente.setProcura(procura, cliente.getSize_demand());
+                        cliente.setId_armazem(count);
+                        count++;
                     }
                     //System.out.println(cliente.getSize_cost());
                 } while (cliente.getSize_cost() < qtd_armazens && cliente.getSize_demand() < qtd_armazens);
-                //System.out.println(cliente.toString());
+                System.out.println(cliente.toString());
                 clientes.add(cliente);
             }
 

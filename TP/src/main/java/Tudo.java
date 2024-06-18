@@ -10,7 +10,7 @@ public class Tudo {
     public static void main(String[] args) {
         List<Armazem> armazens = new ArrayList<>();
         List<Cliente> clientes = new ArrayList<>();
-        String caminhoFicheiro = "src/cap71.txt"; // Substituir pelo caminho certo
+        String caminhoFicheiro = "src/main/java/cap71.txt"; // Substituir pelo caminho certo
         long startTime = System.nanoTime();
 
         
@@ -79,7 +79,7 @@ public class Tudo {
         for (int i = 0; i < numClientes; i++) {
             Cliente cliente = clientes.get(i);
             int melhorArmazem = -1;
-            int menorCusto = Integer.MAX_VALUE;
+            double menorCusto = Integer.MAX_VALUE;
 
             // Iterar sobre todos os armazéns para encontrar o melhor para o cliente atual
             for (int j = 0; j < numArmazens; j++) {
@@ -87,7 +87,7 @@ public class Tudo {
 
                 // Verificar se o armazém tem capacidade para atender a demanda do cliente
                 if (cliente.getProcura(j) <= armazem.getCapacidade()) {
-                    int custo = cliente.getCusto_alocacao(j);
+                    double custo = cliente.getCusto_alocacao(j);
 
                     // Escolher o armazém que minimiza o custo para o cliente atual
                     if (custo < menorCusto) {

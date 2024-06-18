@@ -1,6 +1,7 @@
 package estrutura;
 
 public class Armazem {
+    public int id;
     public int capacidade;
     double custo_fixo;
 
