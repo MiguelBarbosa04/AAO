@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static algoritmoTeste.AntColonyOptimization.calcularCustoTotal;
-import static pesquisaLocal.PesquisaLocal.pesquisaLocal;
+//import static pesquisaLocal.PesquisaLocal.pesquisaLocal;
 
 public class Main {
 
@@ -39,12 +39,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
         List<Armazem> armazem = new ArrayList<Armazem>();
         List<Cliente> cliente = new ArrayList<Cliente>();
 
         try {
-            CarregarDados.lerDados(armazem, cliente, "src/main/java/cap71.txt");
+            CarregarDados.lerDados(armazem, cliente, "src/main/java/Kcapmo1.txt");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

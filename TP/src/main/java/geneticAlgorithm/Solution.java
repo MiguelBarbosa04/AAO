@@ -4,7 +4,7 @@ import estrutura.Cliente;
 
 import java.util.List;
 
-public class Solution {
+public class Solution {/*
     public int[] assignments;
     public double totalCost;
 
@@ -28,5 +28,6 @@ public class Solution {
             }
         }
         this.totalCost = cost;
-    }
+    }*/
 }
+

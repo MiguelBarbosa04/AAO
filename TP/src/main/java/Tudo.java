@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tudo {
-
+/*
     public static void main(String[] args) {
         List<Armazem> armazens = new ArrayList<>();
         List<Cliente> clientes = new ArrayList<>();
@@ -125,5 +125,5 @@ public class Tudo {
 
         return totalCost;
     }
-
+*/
 }

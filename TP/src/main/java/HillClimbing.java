@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class HillClimbing {
-
+/*
     public static void main(String[] args) {
         List<Armazem> armazens = new ArrayList<>();
         List<Cliente> clientes = new ArrayList<>();
@@ -75,5 +75,5 @@ public class HillClimbing {
         }
 
         return totalCost;
-    }
+    }*/
 }

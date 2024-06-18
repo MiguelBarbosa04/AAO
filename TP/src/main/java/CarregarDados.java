@@ -30,27 +30,26 @@ public class CarregarDados {
 
             //Separar dados dos clientes
             for (int j = 0; j < qtd_clientes; j++) {
-                int idCliente = Integer.parseInt(buffer.readLine().trim());
-                Cliente cliente = new Cliente(qtd_armazens, idCliente);
+                int procura = Integer.parseInt(buffer.readLine().trim());
+                Cliente cliente = new Cliente(qtd_armazens, j);
 
                 do {
 
-                    String[] dadosClientes = buffer.readLine().trim().split("\\s+");
-                    for (int k = 0; k < dadosClientes.length; k++) {
-                        String[] procuraCliente = dadosClientes[k].split("\\.");
+                    String[] custoArmazem = buffer.readLine().trim().split("\\s+");
+                    for (int k = 0; k < custoArmazem.length; k++) {
+
                         //System.out.println(procuraCliente[0]);
 
                         //Caso a procuraCliente[0] for vazio ele coloca 0 senão for.... EX: linha 108 cap71.txt
 
-                        int procura = procuraCliente[0].isEmpty() ? 0 : Integer.parseInt(procuraCliente[0]);
-                        double custoTotal = procuraCliente[1].isEmpty() ? 0 : Double.parseDouble(procuraCliente[1]);
+                        double custoTotal = custoArmazem[k].isEmpty() ? 0 : Double.parseDouble(custoArmazem[k]);
                         cliente.setCusto_alocacao(custoTotal, cliente.getSize_cost());
-                        cliente.setProcura(procura, cliente.getSize_demand());
+                        cliente.setProcura(procura);
                         cliente.setId_armazem(count);
                         count++;
                     }
                     //System.out.println(cliente.getSize_cost());
-                } while (cliente.getSize_cost() < qtd_armazens && cliente.getSize_demand() < qtd_armazens);
+                } while (cliente.getSize_cost() < qtd_armazens);
                 System.out.println(cliente.toString());
                 clientes.add(cliente);
             }

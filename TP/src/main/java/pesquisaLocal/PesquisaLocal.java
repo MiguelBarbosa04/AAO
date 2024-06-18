@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class PesquisaLocal {
-
+/*
     // Função para calcular o custo total de alocação para um cliente dado uma atribuição de armazéns
     public static double calcularCustoTotal(Cliente cliente, List<Armazem> armazens, int[] alocacao) {
         double custoTotal = 0.0;
@@ -106,5 +106,5 @@ public class PesquisaLocal {
             custoTotal += calcularCustoTotal(cliente, armazens, alocacaoAtual);
         }
         System.out.println("Custo total: " + custoTotal);
-    }
+    }*/
 }

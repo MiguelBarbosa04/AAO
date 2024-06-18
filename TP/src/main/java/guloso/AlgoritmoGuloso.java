@@ -10,7 +10,7 @@ public class AlgoritmoGuloso {
         int numClientes = clientes.size();
         int numArmazens = armazens.size();
         int[] solution = new int[numClientes];
-        int custoTotal = 0;
+        double custoTotal = 0;
 
         // Initialize the solution array with -1
         for (int i = 0; i < numClientes; i++) {
@@ -27,7 +27,7 @@ public class AlgoritmoGuloso {
             for (int j = 0; j < numArmazens; j++) {
                 Armazem armazem = armazens.get(j);
 
-                double custoAtual = (cliente.getCusto_alocacao(j));
+                double custoAtual = (cliente.getCusto_alocacao(j) + armazem.getCusto_fixo());
 
                 if (custoAtual < menorCusto) {
                     menorCusto = custoAtual;
