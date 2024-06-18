@@ -16,12 +16,16 @@ public class Cliente {
         this.size_demand = 0;
     }
 
+    public Cliente () {
+
+    }
+
     public int getId() {
         return id;
     }
 
-    public int[] getCusto_alocacao() {
-        return custo_alocacao;
+    public int getCusto_alocacao(int index) {
+        return custo_alocacao[index];
     }
 
     public void setCusto_alocacao(int custo_alocacao, int index) {
@@ -29,8 +33,8 @@ public class Cliente {
         size_cost++;
     }
 
-    public int[] getProcura() {
-        return procura;
+    public int getProcura(int index) {
+        return procura[index];
     }
 
     public void setProcura(int procura, int index) {

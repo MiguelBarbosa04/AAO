@@ -10,7 +10,7 @@ public class Tudo {
     public static void main(String[] args) {
         List<Armazem> armazens = new ArrayList<>();
         List<Cliente> clientes = new ArrayList<>();
-        String caminhoFicheiro = "c:/Users/Guerra/Desktop/Trabalhos/LEI/Trabalho AAO/AAO/TP/src/Kcapmp2.txt"; // Substitua pelo caminho do seu ficheiro
+        String caminhoFicheiro = "src/cap71.txt"; // Substituir pelo caminho certo
         long startTime = System.nanoTime();
 
         
@@ -87,7 +87,7 @@ public class Tudo {
 
                 // Verificar se o armazém tem capacidade para atender a demanda do cliente
                 if (cliente.getProcura(j) <= armazem.getCapacidade()) {
-                    int custo = cliente.getCusto(j);
+                    int custo = cliente.getCusto_alocacao(j);
 
                     // Escolher o armazém que minimiza o custo para o cliente atual
                     if (custo < menorCusto) {
@@ -113,7 +113,7 @@ public class Tudo {
             // Verificar se solution[i] é um índice válido para clientes e armazens
             if (armazemIndex >= 0 && armazemIndex < armazens.size() && i < clientes.size()) {
                 armazemCapacities[armazemIndex] += clientes.get(i).getProcura(armazemIndex);
-                totalCost += clientes.get(i).getCusto(armazemIndex);
+                totalCost += clientes.get(i).getCusto_alocacao(armazemIndex);
             }
         }
 

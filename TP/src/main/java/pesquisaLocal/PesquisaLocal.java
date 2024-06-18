@@ -13,7 +13,7 @@ public class PesquisaLocal {
         double custoTotal = 0.0;
         for (int i = 0; i < alocacao.length; i++) {
             if (alocacao[i] >= 0) {
-                custoTotal += cliente.getCusto_alocacao()[i] * armazens.get(alocacao[i]).getCusto_fixo();
+                custoTotal += cliente.getCusto_alocacao(i) * armazens.get(alocacao[i]).getCusto_fixo();
             }
         }
         return custoTotal;
@@ -25,9 +25,9 @@ public class PesquisaLocal {
         double melhorCusto = Double.POSITIVE_INFINITY;
 
         for (int i = 0; i < armazens.size(); i++) {
-            if (cliente.getProcura()[i] > 0 && (alocacaoAtual[i] == -1 || cliente.getCusto_alocacao()[i] * armazens.get(i).getCusto_fixo() < melhorCusto)) {
+            if (cliente.getProcura(i) > 0 && (alocacaoAtual[i] == -1 || cliente.getCusto_alocacao(i) * armazens.get(i).getCusto_fixo() < melhorCusto)) {
                 melhorArmazem = i;
-                melhorCusto = cliente.getCusto_alocacao()[i] * armazens.get(i).getCusto_fixo();
+                melhorCusto = cliente.getCusto_alocacao(i) * armazens.get(i).getCusto_fixo();
             }
         }
 
@@ -65,14 +65,13 @@ public class PesquisaLocal {
             // Para cada cliente, tentar realocar para um armazém com menor custo
             for (int c = 0; c < clientes.size(); c++) {
                 Cliente cliente = clientes.get(c);
-                int[] procura = cliente.getProcura();
 
                 // Encontrar o melhor armazém para realocar o cliente
                 int melhorArmazem = encontrarMelhorArmazem(cliente, armazens, c, alocacaoAtual);
 
                 if (melhorArmazem != -1) {
                     // Realocar cliente para o melhor armazém encontrado
-                    for (int i = 0; i < procura.length; i++) {
+                    for (int i = 0; i < cliente.getSize_demand(); i++) {
                         if (alocacaoAtual[i] == c) {
                             alocacaoAtual[i] = -1;
                         }

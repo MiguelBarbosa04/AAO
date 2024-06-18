@@ -65,7 +65,7 @@ public class HillClimbing {
         for (int i = 0; i < solution.length; i++) {
             int armazemIndex = solution[i];
             armazemCapacities[armazemIndex] += clientes.get(i).getProcura(armazemIndex);
-            totalCost += clientes.get(i).getCusto(armazemIndex);
+            totalCost += clientes.get(i).getCusto_alocacao(armazemIndex);
         }
 
         for (int i = 0; i < armazemCapacities.length; i++) {

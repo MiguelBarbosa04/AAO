@@ -17,6 +17,10 @@ public class Armazem {
         this.custo_fixo = custo_fixo;
     }
 
+    public int getCapacidade() {
+        return capacidade;
+    }
+
     @Override
     public String toString() {
         return "{\n" +

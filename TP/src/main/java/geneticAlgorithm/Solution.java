@@ -18,8 +18,8 @@ public class Solution {
 
         for (int i = 0; i < assignments.length; i++) {
             int warehouseIndex = assignments[i];
-            warehouseUsage[warehouseIndex] += clientes.get(i).getProcura()[warehouseIndex];
-            cost += clientes.get(i).getCusto_alocacao()[warehouseIndex];
+            warehouseUsage[warehouseIndex] += clientes.get(i).getProcura(warehouseIndex);
+            cost += clientes.get(i).getCusto_alocacao(warehouseIndex);
         }
 
         for (int i = 0; i < armazens.size(); i++) {
