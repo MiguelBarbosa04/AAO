@@ -27,16 +27,24 @@ public class AlgoritmoGuloso {
             for (int j = 0; j < numArmazens; j++) {
                 Armazem armazem = armazens.get(j);
 
-                double custoAtual = (cliente.getCusto_alocacao(j) + armazem.getCusto_fixo());
+                /*
+                double custoAtual = 0;
+                if (armazem.isOpen()) {
+                    custoAtual = (cliente.getCusto_alocacao(j));
+                } else {
+                    custoAtual = (cliente.getCusto_alocacao(j) + armazem.getCusto_fixo());
+                }*/
 
+                double custoAtual = (cliente.getCusto_alocacao(j) + armazem.getCusto_fixo());
                 if (custoAtual < menorCusto) {
                     menorCusto = custoAtual;
-                    melhorArmazem = j+1;
+                    melhorArmazem = j;
                 }
             }
 
             if (melhorArmazem != -1) {
                 solution[i] = melhorArmazem;
+                armazens.get(melhorArmazem).setOpen(true);
                 custoTotal += menorCusto;
             }
         }

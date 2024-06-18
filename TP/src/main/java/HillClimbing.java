@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Random;
 
 public class HillClimbing {
-/*
+
     public static void main(String[] args) {
         List<Armazem> armazens = new ArrayList<>();
         List<Cliente> clientes = new ArrayList<>();
-        String caminhoFicheiro = "c:/Users/Guerra/Desktop/Trabalhos/LEI/Trabalho AAO/AAO/TP/src/Kcapmp2.txt"; // Substitua pelo caminho do seu ficheiro
+        String caminhoFicheiro = "src/main/java/data/ORLIB/ORLIB-uncap/70/cap71.txt"; // Substitua pelo caminho do seu ficheiro
 
         try {
             CarregarDados.lerDados(armazens, clientes, caminhoFicheiro);
@@ -64,16 +64,9 @@ public class HillClimbing {
 
         for (int i = 0; i < solution.length; i++) {
             int armazemIndex = solution[i];
-            armazemCapacities[armazemIndex] += clientes.get(i).getProcura(armazemIndex);
             totalCost += clientes.get(i).getCusto_alocacao(armazemIndex);
         }
 
-        for (int i = 0; i < armazemCapacities.length; i++) {
-            if (armazemCapacities[i] > armazens.get(i).getCapacidade()) {
-                totalCost += (armazemCapacities[i] - armazens.get(i).getCapacidade()) ; // Penalidade por exceder a capacidade
-            }
-        }
-
         return totalCost;
-    }*/
+    }
 }

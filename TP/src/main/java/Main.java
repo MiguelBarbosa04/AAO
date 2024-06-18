@@ -44,7 +44,8 @@ public class Main {
         List<Cliente> cliente = new ArrayList<Cliente>();
 
         try {
-            CarregarDados.lerDados(armazem, cliente, "src/main/java/data/M/Kcapmq4.txt");
+            CarregarDados.lerDados(armazem, cliente, "src/main/java/data/ORLIB/ORLIB-uncap/70/cap72.txt");
+            //CarregarDados.lerDados(armazem, cliente, "src/main/java/data/M/Kcapmo1.txt");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -63,6 +64,39 @@ public class Main {
         }
 */
 
+/*
+        int[] solution = AlgoritmoGuloso.executar(armazem, cliente);
+
+
+        HillClimbing hillClimbing = new HillClimbing();
+
+        int currentCost = hillClimbing.evaluateSolution(solution, armazem, cliente);
+
+        boolean improved;
+        do {
+            improved = false;
+            for (int i = 0; i < solution.length; i++) {
+                for (int j = 0; j < armazem.size(); j++) {
+                    if (solution[i] != j) {
+                        int[] newSolution = solution.clone();
+                        newSolution[i] = j;
+                        int newCost = hillClimbing.evaluateSolution(newSolution, armazem, cliente);
+                        if (newCost < currentCost) {
+                            solution = newSolution;
+                            currentCost = newCost;
+                            improved = true;
+                        }
+                    }
+                }
+            }
+        } while (improved);
+*/
+
+
+
+
+
+
         GeneticAlgorithm ga = new GeneticAlgorithm(armazem, cliente);
         Solution bestSolution = ga.run();
 
@@ -73,6 +107,8 @@ public class Main {
         }
 
         //pesquisaLocal(armazem, cliente);
+
+        //AlgoritmoGuloso.executar(armazem, cliente);
 
         /*
         int[] alocacaoAtual = new int[armazem.size()];
@@ -106,15 +142,15 @@ public class Main {
 */
 /*
         // Parâmetros do GRASP
-        int maxIteracoes = 100; // Número máximo de iterações
-        double alpha = 0.6; // Grau de aleatoriedade (0 <= alpha <= 1)
+        int maxIteracoes = 1000; // Número máximo de iterações
+        double alpha = 0.5; // Grau de aleatoriedade (0 <= alpha <= 1)
 
-        int[] sba = CustomGreedy.executar(armazem, cliente);
+        int[] sba = AlgoritmoGuloso.executar(armazem, cliente);
         // Resolver o problema usando GRASP
         Grasp.resolver(cliente, armazem, maxIteracoes, alpha, sba);
 */
 
-        //AlgoritmoGuloso.executar(armazem, cliente);
+        //
 /*
         // Configuração da função objetivo e restrições
         int qtdArmazens = armazem.size();

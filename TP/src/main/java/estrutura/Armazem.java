@@ -3,10 +3,12 @@ package estrutura;
 public class Armazem {
     public int capacidade;
     double custo_fixo;
+    boolean isOpen;
 
     public Armazem(int capacidade, double custo_fixo) {
         this.capacidade = capacidade;
         this.custo_fixo = custo_fixo;
+        this.isOpen = false;
     }
 
     public double getCusto_fixo() {
@@ -19,6 +21,14 @@ public class Armazem {
 
     public int getCapacidade() {
         return capacidade;
+    }
+
+    public boolean isOpen() {
+        return isOpen;
+    }
+
+    public void setOpen(boolean open) {
+        isOpen = open;
     }
 
     @Override
