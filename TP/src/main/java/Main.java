@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static algoritmoTeste.AntColonyOptimization.calcularCustoTotal;
+import static pesquisaLocal.PesquisaLocal.pesquisaLocal;
 //import static pesquisaLocal.PesquisaLocal.pesquisaLocal;
 
 public class Main {
@@ -43,12 +44,14 @@ public class Main {
         List<Cliente> cliente = new ArrayList<Cliente>();
 
         try {
-            CarregarDados.lerDados(armazem, cliente, "src/main/java/Kcapmo1.txt");
+            CarregarDados.lerDados(armazem, cliente, "src/main/java/data/M/Kcapmq4.txt");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
+/*
+        SimplexAlgorithm simplex = new SimplexAlgorithm();
+        simplex.solveUWLP(cliente, armazem);
+*/
 
         /*
         for (Armazem armazens : armazem) {
@@ -59,7 +62,7 @@ public class Main {
             System.out.println(clientes);
         }
 */
-/*
+
         GeneticAlgorithm ga = new GeneticAlgorithm(armazem, cliente);
         Solution bestSolution = ga.run();
 
@@ -68,7 +71,6 @@ public class Main {
         for (int i = 0; i < bestSolution.assignments.length; i++) {
             System.out.println("Cliente " + i + " alocado ao armazém " + bestSolution.assignments[i]);
         }
-*/
 
         //pesquisaLocal(armazem, cliente);
 
@@ -112,7 +114,7 @@ public class Main {
         Grasp.resolver(cliente, armazem, maxIteracoes, alpha, sba);
 */
 
-        AlgoritmoGuloso.executar(armazem, cliente);
+        //AlgoritmoGuloso.executar(armazem, cliente);
 /*
         // Configuração da função objetivo e restrições
         int qtdArmazens = armazem.size();

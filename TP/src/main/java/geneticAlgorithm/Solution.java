@@ -4,7 +4,7 @@ import estrutura.Cliente;
 
 import java.util.List;
 
-public class Solution {/*
+public class Solution {
     public int[] assignments;
     public double totalCost;
 
@@ -18,7 +18,6 @@ public class Solution {/*
 
         for (int i = 0; i < assignments.length; i++) {
             int warehouseIndex = assignments[i];
-            warehouseUsage[warehouseIndex] += clientes.get(i).getProcura(warehouseIndex);
             cost += clientes.get(i).getCusto_alocacao(warehouseIndex);
         }
 
@@ -28,6 +27,6 @@ public class Solution {/*
             }
         }
         this.totalCost = cost;
-    }*/
+    }
 }
 

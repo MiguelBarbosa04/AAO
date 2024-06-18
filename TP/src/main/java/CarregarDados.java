@@ -45,7 +45,6 @@ public class CarregarDados {
                         double custoTotal = custoArmazem[k].isEmpty() ? 0 : Double.parseDouble(custoArmazem[k]);
                         cliente.setCusto_alocacao(custoTotal, cliente.getSize_cost());
                         cliente.setProcura(procura);
-                        cliente.setId_armazem(count);
                         count++;
                     }
                     //System.out.println(cliente.getSize_cost());

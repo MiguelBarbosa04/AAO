@@ -4,7 +4,6 @@ public class Cliente {
     public double[] custo_alocacao ;
     public int procura;
     int id;
-    int id_armazem;
     int size_cost;
 
 
@@ -12,18 +11,6 @@ public class Cliente {
         this.custo_alocacao = new double[qtdArmazem];
         this.id = id;
         this.size_cost = 0;
-    }
-
-    public Cliente () {
-
-    }
-
-    public int getId_armazem() {
-        return id_armazem;
-    }
-
-    public void setId_armazem(int id_armazem) {
-        this.id_armazem = id_armazem;
     }
 
     public int getId() {
@@ -55,7 +42,7 @@ public class Cliente {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Info Cliente\n{\n   ID: ").append(id).append("\n");
+        sb.append("Info Cliente\n{\n   ID: ").append(id).append("\n   ");
         sb.append("Procura: ").append(procura).append("\n");
         sb.append("]\n   CUSTO TOTAL\n   [");
         if (custo_alocacao != null && custo_alocacao.length > 0) {

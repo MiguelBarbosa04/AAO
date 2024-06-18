@@ -4,7 +4,7 @@ import estrutura.Cliente;
 
 import java.util.*;
 
-public class GeneticAlgorithm {/*
+public class GeneticAlgorithm {
     private static final int POPULATION_SIZE = 100;
     private static final int NUM_GENERATIONS = 1000;
     private static final double MUTATION_RATE = 0.1;
@@ -108,5 +108,5 @@ public class GeneticAlgorithm {/*
             }
         }
         return best;
-    }*/
+    }
 }

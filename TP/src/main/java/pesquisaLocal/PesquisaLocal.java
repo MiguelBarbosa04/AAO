@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Random;
 
 public class PesquisaLocal {
-/*
+
     // Função para calcular o custo total de alocação para um cliente dado uma atribuição de armazéns
     public static double calcularCustoTotal(Cliente cliente, List<Armazem> armazens, int[] alocacao) {
         double custoTotal = 0.0;
         for (int i = 0; i < alocacao.length; i++) {
             if (alocacao[i] >= 0) {
-                custoTotal += cliente.getCusto_alocacao(i) * armazens.get(alocacao[i]).getCusto_fixo();
+                custoTotal += cliente.getCusto_alocacao(i) + armazens.get(alocacao[i]).getCusto_fixo();
             }
         }
         return custoTotal;
@@ -25,9 +25,9 @@ public class PesquisaLocal {
         double melhorCusto = Double.POSITIVE_INFINITY;
 
         for (int i = 0; i < armazens.size(); i++) {
-            if (cliente.getProcura(i) > 0 && (alocacaoAtual[i] == -1 || cliente.getCusto_alocacao(i) * armazens.get(i).getCusto_fixo() < melhorCusto)) {
+            if (cliente.getCusto_alocacao(i) + armazens.get(i).getCusto_fixo() < melhorCusto) {
                 melhorArmazem = i;
-                melhorCusto = cliente.getCusto_alocacao(i) * armazens.get(i).getCusto_fixo();
+                melhorCusto = cliente.getCusto_alocacao(i) + armazens.get(i).getCusto_fixo();
             }
         }
 
@@ -40,7 +40,7 @@ public class PesquisaLocal {
         int[] alocacaoInicial = new int[armazens.size()];
 
         for (Cliente cliente : clientes) {
-            for (int j = 0; j < cliente.getSize_demand(); j++) {
+            for (int j = 0; j < cliente.getSize_cost(); j++) {
                 int armazemAleatorio = random.nextInt(armazens.size());
                 alocacaoInicial[armazemAleatorio] = cliente.getId();
             }
@@ -71,7 +71,7 @@ public class PesquisaLocal {
 
                 if (melhorArmazem != -1) {
                     // Realocar cliente para o melhor armazém encontrado
-                    for (int i = 0; i < cliente.getSize_demand(); i++) {
+                    for (int i = 0; i < cliente.getSize_cost(); i++) {
                         if (alocacaoAtual[i] == c) {
                             alocacaoAtual[i] = -1;
                         }
@@ -106,5 +106,5 @@ public class PesquisaLocal {
             custoTotal += calcularCustoTotal(cliente, armazens, alocacaoAtual);
         }
         System.out.println("Custo total: " + custoTotal);
-    }*/
+    }
 }
