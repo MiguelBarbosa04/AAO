@@ -1,25 +1,18 @@
-import algoritmoTeste.AntColonyOptimization;
+import algoritmosExatos.UWLP;
+import algoritmosExatos.exato;
 import estrutura.Armazem;
 import estrutura.Cliente;
-import geneticAlgorithm.GeneticAlgorithm;
-import geneticAlgorithm.Solution;
 import grasp.Grasp;
-import guloso.AlgoritmoGuloso;
-import guloso.CustomGreedy;
-import java.util.Arrays;
+import heuristicosConstrutivos.AlgoritmoGuloso;
+import heuristicosPesquisaLocal.HillClimbing;
+import metaheuristicos.antColonyOptimization.AntColonyOptimization;
 
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import static algoritmoTeste.AntColonyOptimization.calcularCustoTotal;
-import static pesquisaLocal.PesquisaLocal.pesquisaLocal;
-//import static pesquisaLocal.PesquisaLocal.pesquisaLocal;
+import static metaheuristicos.antColonyOptimization.AntColonyOptimization.calcularCustoTotal;
+
 
 public class Main {
 
@@ -44,28 +37,92 @@ public class Main {
         List<Cliente> cliente = new ArrayList<Cliente>();
 
         try {
-            CarregarDados.lerDados(armazem, cliente, "src/main/java/data/ORLIB/ORLIB-uncap/70/cap72.txt");
+            CarregarDados.lerDados(armazem, cliente, "src/main/java/data/uncap/cap71.txt");
             //CarregarDados.lerDados(armazem, cliente, "src/main/java/data/M/Kcapmo1.txt");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+
+        //Exato - Simplex
 /*
-        SimplexAlgorithm simplex = new SimplexAlgorithm();
+        UWLP uwlp = new UWLP();
+         boolean[] solution = uwlp.solveUWLP(armazem, cliente);
+
+        // Exibindo a solução
+        System.out.println("Solução do UWLP:");
+        for (int i = 0; i < armazem.size(); i++) {
+            Armazem armazens = armazem.get(i);
+            System.out.println("Armazém " + (i + 1) + " está " + (armazens.isOpen() ? "aberto" : "fechado"));
+        }
+        System.out.println("Custo total: " + uwlp.calculateTotalCost(solution, armazem, cliente));
+*/
+
+
+            // Definir capacidades dos armazéns e custos de atribuição
+        double[] capacidades = new double[armazem.size()];
+        double[][] custos = new double[cliente.size()][armazem.size()];
+        double[] demandas = new double[cliente.size()];
+
+        for (int i = 0; i < armazem.size(); i++) {
+            capacidades[i] = armazem.get(i).getCapacidade();
+        }
+
+        for (int i = 0; i < cliente.size(); i++) {
+            for (int j = 0; j < armazem.size(); j++) {
+                custos[i][j] = cliente.get(i).getCusto_alocacao(j);
+            }
+            // A demanda de cada cliente é a soma das procuras em todos os armazéns
+            demandas[i] += cliente.get(i).getProcura();
+        }
+
+
+            exato Exato = new exato();
+
+            // Resolver o ILP com OR-Tools
+            int[] solucao = Exato.solveILP(cliente, armazem, custos, capacidades, demandas);
+
+            // Avaliar a solução encontrada
+            double custoTotal = Exato.calculateTotalCost(cliente, armazem, solucao, custos);
+
+            // Mostrar resultado
+            System.out.println("Solução ótima encontrada:");
+            for (int i = 0; i < cliente.size(); i++) {
+                System.out.println("Cliente " + cliente.get(i).getId() + " -> Armazem " + solucao[i]);
+            }
+            System.out.println("Custo total: " + custoTotal);
+
+     /*
+
+
+        algoritmosExatos.SimplexAlgorithm simplex = new algoritmosExatos.SimplexAlgorithm();
         simplex.solveUWLP(cliente, armazem);
+
+        //Metaheuristico - Genetic Algorithm
+        GeneticAlgorithm ga = new GeneticAlgorithm(armazem, cliente);
+        Solution bestSolution = ga.run();
+
+        System.out.println("Melhor custo encontrado: " + bestSolution.totalCost);
+        System.out.println("Alocações dos clientes:");
+        for (int i = 0; i < bestSolution.assignments.length; i++) {
+            System.out.println("Cliente " + i + " alocado ao armazém " + bestSolution.assignments[i]);
+        }
 */
 
-        /*
-        for (Armazem armazens : armazem) {
-            System.out.println(armazens);
-        }
+        //Heuristica de Pesquisa Local - Pesquisa Local
+        //pesquisaLocal(armazem, cliente);
 
-        for (Cliente clientes : cliente) {
-            System.out.println(clientes);
-        }
-*/
+        //Heuristico Construtivo - Greedy
 
 /*
-        int[] solution = AlgoritmoGuloso.executar(armazem, cliente);
+        AlgoritmoGuloso greedy = new AlgoritmoGuloso();
+        greedy.executar(armazem, cliente);
+*/
+/*
+
+
+
+        int[] solution = greedy.executar(armazem, cliente);
 
 
         HillClimbing hillClimbing = new HillClimbing();
@@ -90,25 +147,9 @@ public class Main {
                 }
             }
         } while (improved);
+
+
 */
-
-
-
-
-
-
-        GeneticAlgorithm ga = new GeneticAlgorithm(armazem, cliente);
-        Solution bestSolution = ga.run();
-
-        System.out.println("Melhor custo encontrado: " + bestSolution.totalCost);
-        System.out.println("Alocações dos clientes:");
-        for (int i = 0; i < bestSolution.assignments.length; i++) {
-            System.out.println("Cliente " + i + " alocado ao armazém " + bestSolution.assignments[i]);
-        }
-
-        //pesquisaLocal(armazem, cliente);
-
-        //AlgoritmoGuloso.executar(armazem, cliente);
 
         /*
         int[] alocacaoAtual = new int[armazem.size()];
@@ -120,14 +161,14 @@ public class Main {
             System.out.println("Cliente alocado no Armazem " + i + ": " + alocacaoAtual[i]);
         }
         */
-/*
 
-        int numFormigas = 32;
-        int numIteracoes = 100;
-        double alfa = 2.0;
-        double beta = 2.0;
-        double evaporacao = 0.5;
-        double feromonioInicial = 1.0;
+/*
+        int numFormigas = 16;
+        int numIteracoes = 1000;
+        double alfa = 1.5;
+        double beta = 1.0;
+        double evaporacao = 0.6;
+        double feromonioInicial = 1.4;
 
         AntColonyOptimization aco = new AntColonyOptimization(numFormigas, numIteracoes, alfa, beta, evaporacao, feromonioInicial);
         int[] melhorSolucao = aco.resolver(armazem, cliente);
@@ -145,12 +186,17 @@ public class Main {
         int maxIteracoes = 1000; // Número máximo de iterações
         double alpha = 0.5; // Grau de aleatoriedade (0 <= alpha <= 1)
 
-        int[] sba = AlgoritmoGuloso.executar(armazem, cliente);
+        int[] sba = greedy.executar(armazem, cliente);
+        Grasp grasp = new Grasp();
         // Resolver o problema usando GRASP
-        Grasp.resolver(cliente, armazem, maxIteracoes, alpha, sba);
-*/
+        grasp.resolver(cliente, armazem, maxIteracoes, alpha, sba);
 
+*/
         //
+
+
+
+
 /*
         // Configuração da função objetivo e restrições
         int qtdArmazens = armazem.size();

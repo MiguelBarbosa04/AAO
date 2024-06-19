@@ -4,7 +4,6 @@ import estrutura.Cliente;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CarregarDados {
@@ -23,11 +22,7 @@ public class CarregarDados {
                 double custoFixo = Double.parseDouble(dadosArmazem[1]);
                 armazens.add(new Armazem(capacidade, custoFixo));
                 System.out.println(armazens.toString());
-
             }
-
-            int count = 0;
-
             //Separar dados dos clientes
             for (int j = 0; j < qtd_clientes; j++) {
                 int procura = Integer.parseInt(buffer.readLine().trim());
@@ -37,15 +32,10 @@ public class CarregarDados {
 
                     String[] custoArmazem = buffer.readLine().trim().split("\\s+");
                     for (int k = 0; k < custoArmazem.length; k++) {
-
-                        //System.out.println(procuraCliente[0]);
-
-                        //Caso a procuraCliente[0] for vazio ele coloca 0 senão for.... EX: linha 108 cap71.txt
-
+                        //Caso a custoArmazem[0] for vazio ele coloca 0 senão for.... EX: linha 108 cap71.txt
                         double custoTotal = custoArmazem[k].isEmpty() ? 0 : Double.parseDouble(custoArmazem[k]);
                         cliente.setCusto_alocacao(custoTotal, cliente.getSize_cost());
                         cliente.setProcura(procura);
-                        count++;
                     }
                     //System.out.println(cliente.getSize_cost());
                 } while (cliente.getSize_cost() < qtd_armazens);
