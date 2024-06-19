@@ -4,10 +4,13 @@ import estrutura.Cliente;
 
 import java.util.*;
 
+/**
+ * The type Genetic algorithm.
+ */
 public class GeneticAlgorithm {
     private static final int POPULATION_SIZE = 500;
-    private static final int NUM_GENERATIONS = 2000; //5000 - 0.15 // 1000 - 0.59
-    private static final double MUTATION_RATE = 0.12;
+    private static final int NUM_GENERATIONS = 4000; //5000 - 0.15 // 1000 - 0.59
+    private static final double MUTATION_RATE = 0.14;
 
 
     private List<Solution> population;
@@ -15,6 +18,12 @@ public class GeneticAlgorithm {
     private List<Cliente> clientes;
     private Solution bestSolutionEver; // Melhor solução global
 
+    /**
+     * Instantiates a new Genetic algorithm.
+     *
+     * @param armazens the armazens
+     * @param clientes the clientes
+     */
     public GeneticAlgorithm(List<Armazem> armazens, List<Cliente> clientes) {
         this.armazens = armazens;
         this.clientes = clientes;
@@ -23,6 +32,11 @@ public class GeneticAlgorithm {
         bestSolutionEver = findBestSolutionInGeneration(population); // Inicializa a melhor solução global
     }
 
+    /**
+     * Run solution.
+     *
+     * @return the solution
+     */
     public Solution run() {
         for (int generation = 0; generation < NUM_GENERATIONS; generation++) {
             List<Solution> newPopulation = new ArrayList<>();

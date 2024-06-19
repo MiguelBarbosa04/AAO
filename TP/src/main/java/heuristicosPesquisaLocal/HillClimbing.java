@@ -8,8 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * The type Hill climbing.
+ */
 public class HillClimbing {
 
+    /**
+     * Evaluate solution int.
+     *
+     * @param solution the solution
+     * @param armazens the armazens
+     * @param clientes the clientes
+     * @return the int
+     */
     public static int evaluateSolution(int[] solution, List<Armazem> armazens, List<Cliente> clientes) {
         int totalCost = 0;
 
