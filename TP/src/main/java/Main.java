@@ -2,7 +2,7 @@ import algoritmosExatos.UWLP;
 import algoritmosExatos.exato;
 import estrutura.Armazem;
 import estrutura.Cliente;
-import grasp.Grasp;
+
 import heuristicosConstrutivos.AlgoritmoGuloso;
 import heuristicosPesquisaLocal.HillClimbing;
 import metaheuristicos.antColonyOptimization.AntColonyOptimization;
