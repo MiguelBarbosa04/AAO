@@ -6,6 +6,8 @@ import estrutura.Cliente;
 import heuristicosConstrutivos.AlgoritmoGuloso;
 import heuristicosPesquisaLocal.HillClimbing;
 import metaheuristicos.antColonyOptimization.AntColonyOptimization;
+import metaheuristicos.geneticAlgorithm.GeneticAlgorithm;
+import metaheuristicos.geneticAlgorithm.Solution;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,12 +39,14 @@ public class Main {
         List<Cliente> cliente = new ArrayList<Cliente>();
 
         try {
-            CarregarDados.lerDados(armazem, cliente, "src/main/java/data/uncap/cap71.txt");
+            CarregarDados.lerDados(armazem, cliente, "src/main/java/data/uncap/capc.txt");
             //CarregarDados.lerDados(armazem, cliente, "src/main/java/data/M/Kcapmo1.txt");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
+
+        long startTime = System.nanoTime();
 
         //Exato - Simplex
 /*
@@ -58,7 +62,7 @@ public class Main {
         System.out.println("Custo total: " + uwlp.calculateTotalCost(solution, armazem, cliente));
 */
 
-
+/*
             // Definir capacidades dos armazéns e custos de atribuição
         double[] capacidades = new double[armazem.size()];
         double[][] custos = new double[cliente.size()][armazem.size()];
@@ -91,34 +95,36 @@ public class Main {
                 System.out.println("Cliente " + cliente.get(i).getId() + " -> Armazem " + solucao[i]);
             }
             System.out.println("Custo total: " + custoTotal);
+*/
 
-     /*
 
-
+/*
         algoritmosExatos.SimplexAlgorithm simplex = new algoritmosExatos.SimplexAlgorithm();
         simplex.solveUWLP(cliente, armazem);
+    */
+
 
         //Metaheuristico - Genetic Algorithm
         GeneticAlgorithm ga = new GeneticAlgorithm(armazem, cliente);
         Solution bestSolution = ga.run();
 
-        System.out.println("Melhor custo encontrado: " + bestSolution.totalCost);
+
         System.out.println("Alocações dos clientes:");
         for (int i = 0; i < bestSolution.assignments.length; i++) {
             System.out.println("Cliente " + i + " alocado ao armazém " + bestSolution.assignments[i]);
         }
-*/
+        System.out.println("Melhor custo encontrado: " + bestSolution.totalCost);
+
 
         //Heuristica de Pesquisa Local - Pesquisa Local
         //pesquisaLocal(armazem, cliente);
 
         //Heuristico Construtivo - Greedy
-
 /*
         AlgoritmoGuloso greedy = new AlgoritmoGuloso();
         greedy.executar(armazem, cliente);
-*/
-/*
+
+
 
 
 
@@ -148,8 +154,8 @@ public class Main {
             }
         } while (improved);
 
-
 */
+
 
         /*
         int[] alocacaoAtual = new int[armazem.size()];
@@ -258,6 +264,18 @@ public class Main {
             max[i] = armazem.get(i).getCapacidade();
         }
         */
+
+        // Medir o tempo de término
+        long endTime = System.nanoTime();
+        long totalTime = endTime - startTime;
+
+// Converter o tempo total de nanossegundos para segundos
+        double totalTimeInSeconds = totalTime / 1_000_000_000.0; // Convertendo nanossegundos para segundos
+
+// Arredondar o tempo para três casas decimais
+        double roundedTimeInSeconds = Math.round(totalTimeInSeconds * 1000.0) / 1000.0;
+
+        System.out.println("Tempo de execução: " + roundedTimeInSeconds + " segundos");
 
 
 

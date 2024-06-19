@@ -5,9 +5,9 @@ import estrutura.Cliente;
 import java.util.*;
 
 public class GeneticAlgorithm {
-    private static final int POPULATION_SIZE = 1000;
-    private static final int NUM_GENERATIONS = 1000; //5000 - 0.15 // 1000 - 0.59
-    private static final double MUTATION_RATE = 0.13;
+    private static final int POPULATION_SIZE = 500;
+    private static final int NUM_GENERATIONS = 2000; //5000 - 0.15 // 1000 - 0.59
+    private static final double MUTATION_RATE = 0.12;
 
 
     private List<Solution> population;
