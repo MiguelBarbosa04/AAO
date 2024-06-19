@@ -21,6 +21,8 @@ public class HillClimbing {
      * @param clientes the clientes
      * @return the int
      */
+
+     //
     public static int evaluateSolution(int[] solution, List<Armazem> armazens, List<Cliente> clientes) {
         int totalCost = 0;
 
@@ -30,7 +32,7 @@ public class HillClimbing {
                 totalCost += clientes.get(i).getCusto_alocacao(armazemIndex);
             } else {
                 totalCost += clientes.get(i).getCusto_alocacao(armazemIndex) + armazens.get(armazemIndex).getCusto_fixo();
-                armazens.get(armazemIndex).setOpen(true);
+                armazens.get(armazemIndex).setOpen(true); 
             }
 
         }

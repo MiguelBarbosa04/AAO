@@ -1,19 +1,15 @@
-import algoritmosExatos.UWLP;
-import algoritmosExatos.exato;
 import estrutura.Armazem;
 import estrutura.Cliente;
 
 import heuristicosConstrutivos.AlgoritmoGuloso;
 import heuristicosPesquisaLocal.HillClimbing;
-import metaheuristicos.antColonyOptimization.AntColonyOptimization;
 import metaheuristicos.geneticAlgorithm.GeneticAlgorithm;
 import metaheuristicos.geneticAlgorithm.Solution;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static metaheuristicos.antColonyOptimization.AntColonyOptimization.calcularCustoTotal;
+
 
 
 public class Main {
@@ -65,12 +61,13 @@ public class Main {
 
         //Heuristico Construtivo - Greedy
         greedy.executar(armazem, cliente);
-
+/* 
         //Solução inicial = solução do greedy
         int[] solution = greedy.executar(armazem, cliente);
         //Verificar o custo da solução inicial
         int currentCost = hillClimbing.evaluateSolution(solution, armazem, cliente);
-
+        //Loop para verificar se encontra uma solucao com um custo menor
+        
         boolean improved;
         do {
             improved = false;
@@ -89,33 +86,15 @@ public class Main {
                 }
             }
         } while (improved);
-
-/*
-        int numFormigas = 16;
-        int numIteracoes = 1000;
-        double alfa = 1.5;
-        double beta = 1.0;
-        double evaporacao = 0.6;
-        double feromonioInicial = 1.4;
-
-        AntColonyOptimization aco = new AntColonyOptimization(numFormigas, numIteracoes, alfa, beta, evaporacao, feromonioInicial);
-        int[] melhorSolucao = aco.resolver(armazem, cliente);
-
-        // Mostrar resultados finais
-        System.out.println("Melhor solução encontrada:");
-        for (int i = 0; i < melhorSolucao.length; i++) {
-            System.out.println("Cliente " + i + " alocado no Armazem " + melhorSolucao[i]);
-        }
-        double melhorCusto = calcularCustoTotal(cliente, armazem, melhorSolucao);
-        System.out.println("Custo total: " + melhorCusto);
 */
 
-        // Medir o tempo de término
+
+        // Medir o tempo computacional
         long endTime = System.nanoTime();
         long totalTime = endTime - startTime;
 
 // Converter o tempo total de nanossegundos para segundos
-        double totalTimeInSeconds = totalTime / 1_000_000_000.0; // Convertendo nanossegundos para segundos
+        double totalTimeInSeconds = totalTime / 1_000_000_000.0; 
 
 // Arredondar o tempo para três casas decimais
         double roundedTimeInSeconds = Math.round(totalTimeInSeconds * 1000.0) / 1000.0;
