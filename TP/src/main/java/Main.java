@@ -1,7 +1,6 @@
 import estrutura.Armazem;
 import estrutura.Cliente;
 import heuristicos.AlgoritmoGuloso;
-import heuristicos.CustomerInsertionAlgorithm;
 import heuristicosPesquisaLocal.HillClimbing;
 import metaheuristicos.geneticAlgorithm.GeneticAlgorithm;
 import metaheuristicos.geneticAlgorithm.Solution;
@@ -46,22 +45,7 @@ public class Main {
 
 
         long startTime = System.nanoTime();
-
-        double custoTotal = CustomerInsertionAlgorithm.executar(cliente, armazem);
-
-
-        System.out.println("Armazéns abertos:");
-        for (Armazem armazens : armazem) {
-            if (armazens.isOpen()) {
-               
-            }
-        }
-
-        System.out.println("\nCusto total: " + custoTotal);
-    
-
-
-
+ 
 
         //Metaheuristico - Genetic Algorithm
 /*
@@ -74,9 +58,10 @@ public class Main {
         System.out.println("Melhor custo encontrado: " + bestSolution.totalCost);
 
 
+        */
         //Heuristico Construtivo - Greedy
         greedy.executar(armazem, cliente);
-/* 
+        /* 
         //Solução inicial = solução do greedy
         int[] solution = greedy.executar(armazem, cliente);
         //Verificar o custo da solução inicial
