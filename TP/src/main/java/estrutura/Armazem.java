@@ -4,7 +4,8 @@ public class Armazem {
     public int capacidade;
     double custo_fixo;
     boolean isOpen;
-
+  
+    
     public Armazem(int capacidade, double custo_fixo) {
         this.capacidade = capacidade;
         this.custo_fixo = custo_fixo;

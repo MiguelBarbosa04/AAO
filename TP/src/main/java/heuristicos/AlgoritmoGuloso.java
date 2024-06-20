@@ -1,4 +1,4 @@
-package heuristicosConstrutivos;
+package heuristicos;
 
 import estrutura.Armazem;
 import estrutura.Cliente;

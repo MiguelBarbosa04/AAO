@@ -1,7 +1,7 @@
 import estrutura.Armazem;
 import estrutura.Cliente;
-
-import heuristicosConstrutivos.AlgoritmoGuloso;
+import heuristicos.AlgoritmoGuloso;
+import heuristicos.CustomerInsertionAlgorithm;
 import heuristicosPesquisaLocal.HillClimbing;
 import metaheuristicos.geneticAlgorithm.GeneticAlgorithm;
 import metaheuristicos.geneticAlgorithm.Solution;
@@ -36,7 +36,7 @@ public class Main {
         GeneticAlgorithm ga = new GeneticAlgorithm(armazem, cliente);
         AlgoritmoGuloso greedy = new AlgoritmoGuloso();
         HillClimbing hillClimbing = new HillClimbing();
-
+        
         try {
             CarregarDados.lerDados(armazem, cliente, "src/main/java/data/uncap/capa.txt");
             //CarregarDados.lerDados(armazem, cliente, "src/main/java/data/M/Kcapmo1.txt");
@@ -46,6 +46,21 @@ public class Main {
 
 
         long startTime = System.nanoTime();
+
+        double custoTotal = CustomerInsertionAlgorithm.executar(cliente, armazem);
+
+
+        System.out.println("Armazéns abertos:");
+        for (Armazem armazens : armazem) {
+            if (armazens.isOpen()) {
+               
+            }
+        }
+
+        System.out.println("\nCusto total: " + custoTotal);
+    
+
+
 
 
         //Metaheuristico - Genetic Algorithm
@@ -57,7 +72,7 @@ public class Main {
             System.out.println("Cliente " + i + " alocado ao armazém " + bestSolution.assignments[i]);
         }
         System.out.println("Melhor custo encontrado: " + bestSolution.totalCost);
-*/
+
 
         //Heuristico Construtivo - Greedy
         greedy.executar(armazem, cliente);
