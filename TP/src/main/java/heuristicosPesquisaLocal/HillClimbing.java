@@ -34,7 +34,6 @@ public class HillClimbing {
                 totalCost += clientes.get(i).getCusto_alocacao(armazemIndex) + armazens.get(armazemIndex).getCusto_fixo();
                 armazens.get(armazemIndex).setOpen(true); 
             }
-
         }
 
         return totalCost;

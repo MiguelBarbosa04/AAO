@@ -9,8 +9,8 @@ import java.util.*;
  */
 public class GeneticAlgorithm {
     private static final int POPULATION_SIZE = 500;
-    private static final int NUM_GENERATIONS = 4000; //5000 - 0.15 // 1000 - 0.59
-    private static final double MUTATION_RATE = 0.14;
+    private static final int NUM_GENERATIONS = 2000; //5000 - 0.15 // 1000 - 0.59
+    private static final double MUTATION_RATE = 0.12;
 
 
     private List<Solution> population;
@@ -43,10 +43,10 @@ public class GeneticAlgorithm {
             for (int i = 0; i < POPULATION_SIZE; i++) {
                 Solution parent1 = selectParent();
                 Solution parent2 = selectParent();
-                Solution offspring = crossover(parent1, parent2);
-                mutate(offspring, armazens.size());
-                offspring.calculateCost(armazens, clientes);
-                newPopulation.add(offspring);
+                Solution son = crossover(parent1, parent2);
+                mutate(son, armazens.size());
+                son.calculateCost(armazens, clientes);
+                newPopulation.add(son);
             }
             population = newPopulation;
 
@@ -94,16 +94,16 @@ public class GeneticAlgorithm {
     }
 
     private Solution crossover(Solution parent1, Solution parent2) {
-        Solution offspring = new Solution(parent1.assignments.length);
+        Solution son = new Solution(parent1.assignments.length);
         Random random = new Random();
         for (int i = 0; i < parent1.assignments.length; i++) {
             if (random.nextBoolean()) {
-                offspring.assignments[i] = parent1.assignments[i];
+                son.assignments[i] = parent1.assignments[i];
             } else {
-                offspring.assignments[i] = parent2.assignments[i];
+                son.assignments[i] = parent2.assignments[i];
             }
         }
-        return offspring;
+        return son;
     }
 
     private void mutate(Solution solution, int numArmazens) {

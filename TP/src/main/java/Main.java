@@ -1,11 +1,15 @@
 import estrutura.Armazem;
 import estrutura.Cliente;
+import estrutura.Solution;
 import heuristicos.AlgoritmoGuloso;
 import heuristicosPesquisaLocal.HillClimbing;
+import heuristicosPesquisaLocal.TabuSearch;
+import heuristicosPesquisaLocal.NewHillClimbing;
 import metaheuristicos.geneticAlgorithm.GeneticAlgorithm;
-import metaheuristicos.geneticAlgorithm.Solution;
+//import metaheuristicos.geneticAlgorithm.Solution;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -32,18 +36,17 @@ public class Main {
     public static void main(String[] args) {
         List<Armazem> armazem = new ArrayList<Armazem>();
         List<Cliente> cliente = new ArrayList<Cliente>();
-        GeneticAlgorithm ga = new GeneticAlgorithm(armazem, cliente);
         AlgoritmoGuloso greedy = new AlgoritmoGuloso();
-        HillClimbing hillClimbing = new HillClimbing();
+        //HillClimbing hillClimbing = new HillClimbing();
         
         try {
-            CarregarDados.lerDados(armazem, cliente, "src/main/java/data/uncap/capa.txt");
+            CarregarDados.lerDados(armazem, cliente,"C:/Users/josed/OneDrive/Documentos/NetBeansProjects/AAO/TP/src/main/java/data/uncap/capa.txt" );
             //CarregarDados.lerDados(armazem, cliente, "src/main/java/data/M/Kcapmo1.txt");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-
+        GeneticAlgorithm ga = new GeneticAlgorithm(armazem, cliente);
         long startTime = System.nanoTime();
  
 
@@ -57,11 +60,11 @@ public class Main {
         }
         System.out.println("Melhor custo encontrado: " + bestSolution.totalCost);
 
+*/
 
-        */
         //Heuristico Construtivo - Greedy
-        greedy.executar(armazem, cliente);
-        /* 
+        // greedy.executar(armazem, cliente);
+   /*
         //Solução inicial = solução do greedy
         int[] solution = greedy.executar(armazem, cliente);
         //Verificar o custo da solução inicial
@@ -88,15 +91,41 @@ public class Main {
         } while (improved);
 */
 
+        NewHillClimbing hillClimbing = new NewHillClimbing(armazem, cliente);
+        int[] solution = greedy.executar(armazem, cliente);
+
+// Executar Hill Climbing
+        int[] bestAllocation = hillClimbing.hillClimbing(solution);
+        double bestCost = hillClimbing.calculateCost(bestAllocation);
+
+        // Mostrar resultados
+        System.out.println("Melhor solução encontrada: ");
+        System.out.println("Custo: " + bestCost);
+        System.out.println("Alocação: " + Arrays.toString(bestAllocation));
+
+/*
+        int[] solution = greedy.executar(armazem, cliente);
+        // Configurações do Tabu Search
+        int maxIter = 1000;
+        int tabuTenure = 10;
+
+        TabuSearch tabuSearch = new TabuSearch(armazem, cliente, 100, 30);
+        Solution bestSolution = tabuSearch.tabuSearch(solution);
+
+        System.out.println("Melhor solução encontrada: ");
+        System.out.println("Custo: " + bestSolution.getCost());
+        System.out.println("Alocação: " + Arrays.toString(bestSolution.getAllocation()));
+
+*/
 
         // Medir o tempo computacional
         long endTime = System.nanoTime();
         long totalTime = endTime - startTime;
 
-// Converter o tempo total de nanossegundos para segundos
+        // Converter o tempo total de nanossegundos para segundos
         double totalTimeInSeconds = totalTime / 1_000_000_000.0; 
 
-// Arredondar o tempo para três casas decimais
+        // Arredondar o tempo para três casas decimais
         double roundedTimeInSeconds = Math.round(totalTimeInSeconds * 1000.0) / 1000.0;
 
         System.out.println("Tempo de execução: " + roundedTimeInSeconds + " segundos");
