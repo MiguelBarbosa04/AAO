@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class AlgoritmoGuloso {
 
-
+    public double custoTotal;
     /**
      * Executar int [ ].
      *
@@ -22,7 +22,7 @@ public class AlgoritmoGuloso {
         int numClientes = clientes.size();
         int numArmazens = armazens.size();
         int[] solution = new int[numClientes];
-        double custoTotal = 0;
+        custoTotal = 0;
 
             // Inicializar a array da "solution" como -1
         for (int i = 0; i < numClientes; i++) {
@@ -67,7 +67,6 @@ public class AlgoritmoGuloso {
         for (int i = 0; i < solution.length; i++) {
             System.out.println("Cliente " + i + " -> Armazém " + solution[i] + " Custo de Alocação " + clientes.get(i).getCusto_alocacao(solution[i]-1));
         }
-        System.out.println("Custo Total: " + custoTotal);
 
         return solution;
     }

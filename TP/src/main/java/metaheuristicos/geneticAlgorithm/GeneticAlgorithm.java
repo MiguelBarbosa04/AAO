@@ -8,9 +8,9 @@ import java.util.*;
  * The type Genetic algorithm.
  */
 public class GeneticAlgorithm {
-    private static final int POPULATION_SIZE = 500;
-    private static final int NUM_GENERATIONS = 2000; //5000 - 0.15 // 1000 - 0.59
-    private static final double MUTATION_RATE = 0.12;
+    private static final int POPULATION_SIZE = 500;  //Nº de soluções a correr
+    private static final int NUM_GENERATIONS = 2000; //Quantidade de gerações a serem criadas
+    private static final double MUTATION_RATE = 0.12; //Chance para ocorrer mutação genética
 
 
     private List<Solution> population;

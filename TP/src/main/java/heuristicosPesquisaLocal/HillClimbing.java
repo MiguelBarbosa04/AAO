@@ -1,41 +1,69 @@
 package heuristicosPesquisaLocal;
 
+import java.util.*;
+
 import estrutura.Armazem;
 import estrutura.Cliente;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-/**
- * The type Hill climbing.
- */
 public class HillClimbing {
+    private List<Armazem> armazens;
+    private List<Cliente> clientes;
 
-    /**
-     * Evaluate solution int.
-     *
-     * @param solution the solution
-     * @param armazens the armazens
-     * @param clientes the clientes
-     * @return the int
-     */
+    public HillClimbing(List<Armazem> armazens, List<Cliente> clientes) {
+        this.armazens = armazens;
+        this.clientes = clientes;
+    }
 
-     //
-    public static int evaluateSolution(int[] solution, List<Armazem> armazens, List<Cliente> clientes) {
-        int totalCost = 0;
+    public double calculateCost(int[] allocation) {
+        double totalCost = 0;
+        for (Armazem armazem : armazens) {
+            armazem.setOpen(false);
+        }
+        for (int i = 0; i < allocation.length; i++) {
+            int armazemIndex = allocation[i];
+            if (!armazens.get(armazemIndex).isOpen()) {
+                armazens.get(armazemIndex).setOpen(true);
+                totalCost += armazens.get(armazemIndex).getCusto_fixo();
+            }
+            totalCost += clientes.get(i).getCusto_alocacao(armazemIndex);
+        }
+        return totalCost;
+    }
 
-        for (int i = 0; i < solution.length; i++) {
-            int armazemIndex = solution[i];
-            if (armazens.get(armazemIndex).isOpen()) {
-                totalCost += clientes.get(i).getCusto_alocacao(armazemIndex);
-            } else {
-                totalCost += clientes.get(i).getCusto_alocacao(armazemIndex) + armazens.get(armazemIndex).getCusto_fixo();
-                armazens.get(armazemIndex).setOpen(true); 
+    public int[] hillClimbing(int[] initialAllocation) {
+        int[] currentAllocation = initialAllocation.clone();
+        double currentCost = calculateCost(currentAllocation);
+
+        boolean foundBetter = true;
+        while (foundBetter) {
+            foundBetter = false;
+
+            // Generate neighbors by changing one client's allocation
+            for (int i = 0; i < currentAllocation.length; i++) {
+                int currentWarehouse = currentAllocation[i];
+
+                // Try allocating this client to each warehouse (excluding current one)
+                for (int j = 0; j < armazens.size(); j++) {
+                    if (j != currentWarehouse) {
+                        int[] neighborAllocation = currentAllocation.clone();
+                        neighborAllocation[i] = j;
+
+                        double neighborCost = calculateCost(neighborAllocation);
+                        if (neighborCost < currentCost) {
+                            currentAllocation = neighborAllocation;
+                            currentCost = neighborCost;
+                            foundBetter = true;
+                            break; // Move to next iteration of while loop
+                        }
+                    }
+                }
+
+                if (foundBetter) {
+                    break; // Move to next iteration of while loop
+                }
             }
         }
 
-        return totalCost;
+        return currentAllocation;
     }
 }

@@ -1,10 +1,10 @@
-package estrutura;
+package heuristicosPesquisaLocal.tabuSearch;
 
-public class Solution {
+public class TabuSearchSolution {
     int[] allocation; // allocation[i] indicates the warehouse assigned to client i
     double cost;
 
-    public Solution(int[] allocation, double cost) {
+    public TabuSearchSolution(int[] allocation, double cost) {
         this.allocation = allocation.clone();
         this.cost = cost;
     }

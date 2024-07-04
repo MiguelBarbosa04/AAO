@@ -1,9 +1,8 @@
-package heuristicosPesquisaLocal;
+package heuristicosPesquisaLocal.tabuSearch;
 import java.util.*;
 
 import estrutura.Armazem;
 import estrutura.Cliente;
-import estrutura.Solution;
 
 public class TabuSearch {
     private List<Armazem> armazens;
@@ -34,15 +33,15 @@ public class TabuSearch {
         return totalCost;
     }
 
-    public List<Solution> generateNeighbors(int[] allocation) {
-        List<Solution> neighbors = new ArrayList<>();
+    public List<TabuSearchSolution> generateNeighbors(int[] allocation) {
+        List<TabuSearchSolution> neighbors = new ArrayList<>();
         for (int i = 0; i < allocation.length; i++) {
             int currentWarehouse = allocation[i];
             for (int j = 0; j < armazens.size(); j++) {
                 if (j != currentWarehouse) {
                     int[] newAllocation = allocation.clone();
                     newAllocation[i] = j;
-                    neighbors.add(new Solution(newAllocation, -1)); // cost will be calculated later
+                    neighbors.add(new TabuSearchSolution(newAllocation, -1)); // cost will be calculated later
                 }
             }
         }
@@ -56,7 +55,7 @@ public class TabuSearch {
         }
     }
 
-    public Solution tabuSearch(int[] initialAllocation) {
+    public TabuSearchSolution tabuSearch(int[] initialAllocation) {
         int[] bestAllocation = initialAllocation.clone();
         double bestCost = calculateCost(initialAllocation);
         int[] currentAllocation = bestAllocation.clone();
@@ -68,11 +67,11 @@ public class TabuSearch {
         double[] iterationCosts = new double[maxIterations];
 
         while (iteration < maxIterations) {
-            List<Solution> neighbors = generateNeighbors(currentAllocation);
-            Solution bestNeighbor = null;
+            List<TabuSearchSolution> neighbors = generateNeighbors(currentAllocation);
+            TabuSearchSolution bestNeighbor = null;
             double bestNeighborCost = Double.MAX_VALUE;
 
-            for (Solution neighbor : neighbors) {
+            for (TabuSearchSolution neighbor : neighbors) {
                 int move = Arrays.hashCode(neighbor.getAllocation());
                 if (!tabuList.contains(move) || neighbor.getCost() < bestCost) {
                     neighbor.setCost(calculateCost(neighbor.getAllocation()));
@@ -106,6 +105,6 @@ public class TabuSearch {
         // Print best global cost found
         System.out.println("\nBest global cost found: " + bestCost);
 
-        return new Solution(bestAllocation, bestCost);
+        return new TabuSearchSolution(bestAllocation, bestCost);
     }
 }
