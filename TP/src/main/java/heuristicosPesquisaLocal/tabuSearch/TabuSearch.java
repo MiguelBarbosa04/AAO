@@ -17,6 +17,11 @@ public class TabuSearch {
         this.tabuTenure = tabuTenure;
     }
 
+    
+    /** 
+     * @param allocation
+     * @return double
+     */
     public double calculateCost(int[] allocation) {
         double totalCost = 0;
         for (Armazem armazem : armazens) {
@@ -33,6 +38,11 @@ public class TabuSearch {
         return totalCost;
     }
 
+    
+    /** 
+     * @param allocation
+     * @return List<TabuSearchSolution>
+     */
     public List<TabuSearchSolution> generateNeighbors(int[] allocation) {
         List<TabuSearchSolution> neighbors = new ArrayList<>();
         for (int i = 0; i < allocation.length; i++) {
@@ -48,6 +58,11 @@ public class TabuSearch {
         return neighbors;
     }
 
+    
+    /** 
+     * @param tabuList
+     * @param currentMove
+     */
     private void updateTabuList(List<Integer> tabuList, int currentMove) {
         tabuList.add(currentMove);
         if (tabuList.size() > tabuTenure) {
@@ -55,6 +70,11 @@ public class TabuSearch {
         }
     }
 
+    
+    /** 
+     * @param initialAllocation
+     * @return TabuSearchSolution
+     */
     public TabuSearchSolution tabuSearch(int[] initialAllocation) {
         int[] bestAllocation = initialAllocation.clone();
         double bestCost = calculateCost(initialAllocation);

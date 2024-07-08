@@ -13,7 +13,11 @@ public class HillClimbing {
         this.armazens = armazens;
         this.clientes = clientes;
     }
-
+    
+    /** 
+     * @param allocation
+     * @return double
+     */
     public double calculateCost(int[] allocation) {
         double totalCost = 0;
         for (Armazem armazem : armazens) {
@@ -30,6 +34,12 @@ public class HillClimbing {
         return totalCost;
     }
 
+    
+    
+    /** 
+     * @param initialAllocation
+     * @return int[]
+     */
     public int[] hillClimbing(int[] initialAllocation) {
         int[] currentAllocation = initialAllocation.clone();
         double currentCost = calculateCost(currentAllocation);
