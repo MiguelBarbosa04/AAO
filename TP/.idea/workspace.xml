@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="829c360f-f5fd-43fe-ab71-56f4cb0e110f" name="Changes" comment="Correção do GeneticAlgorithm">
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/CarregarDados.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/HillClimbing.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/Nearest_Neighbour.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/NotAMain.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/SimplexAlgorithm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/Tudo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/algoritmoTeste/AntColonyOptimization.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmo1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmo2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmo3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmo4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmo5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmp1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmp2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmp3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmp4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmp5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmq1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmq2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmq3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmq4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmq5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmr1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmr2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmr3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmr4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/M/Kcapmr5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/100/cap101.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/100/cap101.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/100/cap102.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/100/cap102.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/100/cap103.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/100/cap103.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/100/cap104.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/100/cap104.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/100/files.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/130/cap131.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/130/cap131.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/130/cap132.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/130/cap132.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/130/cap133.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/130/cap133.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/130/cap134.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/130/cap134.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/130/files.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/70/cap71.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/70/cap71.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/70/cap72.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/70/cap72.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/70/cap73.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/70/cap73.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/70/cap74.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/70/cap74.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/70/files.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/a-c/capa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/a-c/capa.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/a-c/capb.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/a-c/capb.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/a-c/capc.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/a-c/capc.txt.opt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/ORLIB-uncap/a-c/files.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/data/ORLIB/capinfo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/estrutura/Armazem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/estrutura/Cliente.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/geneticAlgorithm/GeneticAlgorithm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/geneticAlgorithm/Solution.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/grasp/Grasp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/guloso/AlgoritmoGuloso.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/guloso/CustomGreedy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/AAO/pesquisaLocal/PesquisaLocal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ExactAlgorithm.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2hStFgYZtt6sXkfwRJwW2TA9AX4" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "dev-Tiago",
+    "last_opened_file_path": "C:/Users/Miguel/Documents/GitHub/AAO/TP",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Miguel\Documents\GitHub\AAO\TP\src" />
+      <recent name="C:\Users\Miguel\Documents\GitHub\AAO\TP\src\estrutura" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="TP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="829c360f-f5fd-43fe-ab71-56f4cb0e110f" name="Changes" comment="" />
+      <created>1717599204881</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717599204881</updated>
+      <workItem from="1717599205908" duration="11158000" />
+      <workItem from="1718485798468" duration="4176000" />
+      <workItem from="1718491075013" duration="572000" />
+      <workItem from="1718570216755" duration="1416000" />
+      <workItem from="1718721510623" duration="383000" />
+      <workItem from="1718919625930" duration="994000" />
+    </task>
+    <task id="LOCAL-00001" summary="Correção do GeneticAlgorithm">
+      <option name="closed" value="true" />
+      <created>1718491339192</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718491339192</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Correção do GeneticAlgorithm" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correção do GeneticAlgorithm" />
+  </component>
+</project>
