@@ -10,6 +10,7 @@ public class TabuSearch {
     private int maxIterations;
     private int tabuTenure;
 
+    // Construtor classe Tabu Search
     public TabuSearch(List<Armazem> armazens, List<Cliente> clientes, int maxIterations, int tabuTenure) {
         this.armazens = armazens;
         this.clientes = clientes;
@@ -19,13 +20,14 @@ public class TabuSearch {
 
     
     /** 
+     * Calcula o custo total da alocação
      * @param allocation
      * @return double
      */
     public double calculateCost(int[] allocation) {
         double totalCost = 0;
         for (Armazem armazem : armazens) {
-            armazem.setOpen(false);
+            armazem.setOpen(false); // Fechar todos os armazéns inicialmente
         }
         for (int i = 0; i < allocation.length; i++) {
             int armazemIndex = allocation[i];
@@ -40,6 +42,7 @@ public class TabuSearch {
 
     
     /** 
+     * Gera vizinhos mudando a alocação de um cliente para outro armazém
      * @param allocation
      * @return List<TabuSearchSolution>
      */
@@ -51,7 +54,7 @@ public class TabuSearch {
                 if (j != currentWarehouse) {
                     int[] newAllocation = allocation.clone();
                     newAllocation[i] = j;
-                    neighbors.add(new TabuSearchSolution(newAllocation, -1)); // cost will be calculated later
+                    neighbors.add(new TabuSearchSolution(newAllocation, -1)); // O custo será calculado mais tarde
                 }
             }
         }
@@ -60,6 +63,7 @@ public class TabuSearch {
 
     
     /** 
+     * Atualiza a tabu list, adicionando o movimento atual e removendo o mais antigo se necessário
      * @param tabuList
      * @param currentMove
      */
@@ -72,6 +76,7 @@ public class TabuSearch {
 
     
     /** 
+     * Executa o algoritmo Tabu Search
      * @param initialAllocation
      * @return TabuSearchSolution
      */

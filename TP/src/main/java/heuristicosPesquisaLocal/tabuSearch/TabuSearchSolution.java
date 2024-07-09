@@ -1,7 +1,7 @@
 package heuristicosPesquisaLocal.tabuSearch;
 
 public class TabuSearchSolution {
-    int[] allocation; // allocation[i] indicates the warehouse assigned to client i
+    int[] allocation; // allocation[i] = armazem atribuido ao cliente i
     double cost;
 
     public TabuSearchSolution(int[] allocation, double cost) {
