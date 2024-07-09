@@ -89,13 +89,14 @@ public class TabuSearch {
         List<Integer> tabuList = new ArrayList<>();
         int iteration = 0;
 
-        double[] iterationCosts = new double[maxIterations];
+        double[] iterationCosts = new double[maxIterations]; // Armazena os custos por iteração
 
         while (iteration < maxIterations) {
             List<TabuSearchSolution> neighbors = generateNeighbors(currentAllocation);
             TabuSearchSolution bestNeighbor = null;
             double bestNeighborCost = Double.MAX_VALUE;
 
+            // Avalia os vizinhos e encontra o melhor
             for (TabuSearchSolution neighbor : neighbors) {
                 int move = Arrays.hashCode(neighbor.getAllocation());
                 if (!tabuList.contains(move) || neighbor.getCost() < bestCost) {
@@ -120,14 +121,13 @@ public class TabuSearch {
 
                 iterationCosts[iteration] = currentCost;
 
-                // Print cost per iteration
                 System.out.println("Iteration " + (iteration + 1) + " - Cost: " + currentCost);
             }
 
             iteration++;
         }
 
-        // Print best global cost found
+        // Imprime o melhor custo global encontrado
         System.out.println("\nBest global cost found: " + bestCost);
 
         return new TabuSearchSolution(bestAllocation, bestCost);
