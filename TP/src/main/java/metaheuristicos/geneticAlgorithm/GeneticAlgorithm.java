@@ -33,15 +33,16 @@ public class GeneticAlgorithm {
     }
 
     /**
-     * Executa o algoritmo genetic
+     //* Principal que Executa o algoritmo genetic
      *
      * @return the solution
      */
     public Solution run() {
+        //ciclo for, cada geração, até 2000 gerações
         for (int generation = 0; generation < NUM_GENERATIONS; generation++) {
             List<Solution> newPopulation = new ArrayList<>();
             
-            // Gerar nova população através de seleção, crossover e mutação
+            // ciclo Gerar nova população através de seleção, crossover e mutação
             for (int i = 0; i < POPULATION_SIZE; i++) {
                 Solution parent1 = selectParent();
                 Solution parent2 = selectParent();
@@ -63,7 +64,7 @@ public class GeneticAlgorithm {
         return bestSolutionEver;
     }
 
-    //Iniciar a população com soluções aleatórias
+    //Iniciar a população com soluções //* aleatórias
     private List<Solution> initializePopulation(int numClientes, int numArmazens) {
         List<Solution> population = new ArrayList<>();
         Random random = new Random();
@@ -77,14 +78,14 @@ public class GeneticAlgorithm {
         return population;
     }
 
-    // Avalia a popualação calculando o custo de cada solução
+    // Avalia a população atual calculando o custo de cada solução
     private void evaluatePopulation() {
         for (Solution solution : population) {
             solution.calculateCost(armazens, clientes);
         }
     }
 
-    // Seleciona um pai usando o método por torneio
+    // Seleciona os dois melhores usando o método por torneio
     private Solution selectParent() {
         // Seleção por torneio
         Random random = new Random();
@@ -98,32 +99,32 @@ public class GeneticAlgorithm {
         return best;
     }
 
-    // Crossover entre dois pais para gerar um filho
+    // Crossover entre dois pais para gerar um filho 
     private Solution crossover(Solution parent1, Solution parent2) {
         Solution son = new Solution(parent1.assignments.length);
         Random random = new Random();
         for (int i = 0; i < parent1.assignments.length; i++) {
             // Escolhe aleatóriamente o gene de um dos pais
             if (random.nextBoolean()) {
-                son.assignments[i] = parent1.assignments[i];
+                son.assignments[i] = parent1.assignments[i]; //true 1 pai
             } else {
-                son.assignments[i] = parent2.assignments[i];
+                son.assignments[i] = parent2.assignments[i]; //false outro pai
             }
         }
-        return son;
+        return son; // armazem de um pai ou de outro
     }
 
     // Mutação genética para alterar aleatoriamente os genes de uma solução
     private void mutate(Solution solution, int numArmazens) {
         Random random = new Random();
-        for (int i = 0; i < solution.assignments.length; i++) {
-            if (random.nextDouble() < MUTATION_RATE) {
+        for (int i = 0; i < solution.assignments.length; i++) { 
+            if (random.nextDouble() < MUTATION_RATE) { // se for menor acontece a mutação da solução 0.12
                 solution.assignments[i] = random.nextInt(numArmazens);
             }
         }
     }
 
-    // Ecnontra a melhor solução na geração atual
+    // Encontra a melhor solução na geração atual e depois retorna best
     private Solution findBestSolutionInGeneration(List<Solution> population) {
         Solution best = population.get(0);
         for (Solution solution : population) {

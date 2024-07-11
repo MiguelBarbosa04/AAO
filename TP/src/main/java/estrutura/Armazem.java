@@ -1,7 +1,7 @@
 package estrutura;
 
 public class Armazem {
-    public int capacidade;
+    public int capacidade; // não utilizado
     double custo_fixo;
     boolean isOpen;
   

@@ -42,16 +42,16 @@ public class HillClimbing {
     }
 
     
-    //* Algoritmo Hill Climbing que vai melhorar a solução inicial */
+    //* Função Algoritmo Hill Climbing que vai melhorar a solução inicial */
     /** 
      * @param initialAllocation
      * @return int[]
      */
     public int[] hillClimbing(int[] initialAllocation) {
-        int[] currentAllocation = initialAllocation.clone();
+        int[] currentAllocation = initialAllocation.clone(); // clonar - variavel temporaria para currentAllocation
         double currentCost = calculateCost(currentAllocation);
 
-        boolean foundBetter = true;
+        boolean foundBetter = true; // true para iniciar o while
 
         // Loop 
         while (foundBetter) {
@@ -80,7 +80,7 @@ public class HillClimbing {
                 }
 
                 if (foundBetter) {
-                    break; 
+                    break; // Quebrar o Loop e Próxima iteração do loop while
                 }
             }
         }

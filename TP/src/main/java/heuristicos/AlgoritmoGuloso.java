@@ -6,7 +6,7 @@ import estrutura.Cliente;
 import java.util.List;
 
 /**
- * The type Algoritmo guloso.
+ //* Algoritmo guloso
  */
 public class AlgoritmoGuloso {
 
@@ -22,11 +22,11 @@ public class AlgoritmoGuloso {
     public int[] executar(List<Armazem> armazens, List<Cliente> clientes) {
         int numClientes = clientes.size();
         int numArmazens = armazens.size();
-        //array guardar a solução, inicializando em -1 (nenhum armazem atribuido)
+        // array guardar a solução
         int[] solution = new int[numClientes];
         custoTotal = 0;
 
-        // Inicializar a array da "solution" como -1
+        // Inicializar a array da "solution" como -1, (nenhum armazem atribuido)
         for (int i = 0; i < numClientes; i++) {
             solution[i] = -1;
         }
@@ -58,7 +58,7 @@ public class AlgoritmoGuloso {
                 }
             }
 
-            // atribuit melhor armazen encontrado ao cliente
+            // atribuir melhor armazen encontrado ao cliente
             if (melhorArmazem != -1) {
                 solution[i] = melhorArmazem;
                 armazens.get(melhorArmazem).setOpen(true); //se ainda nao estiver aberto, abrir
